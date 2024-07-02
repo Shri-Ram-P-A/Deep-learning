@@ -9,9 +9,10 @@ model  = tf.keras.Sequential([
     tf.keras.layers.Dense(1,activation='sigmoid')
 ])
 
-model.compile(loss="binary_crossentropy",optimizer = "adam", metrics = ['accuracy','recall','precision'])
+model.compile(loss="binary_crossentropy",optimizer = "adam", metrics = ['accuracy','recall'])
 
 model.fit(x,y,epochs = 1299)
 
-print(model.evaluate(x,y))
-
+met = model.evaluate(x,y)
+print("Loss :",met[0],"Accuracy :",met[1])
+print("Prediction :",np.round(model.predict(x)))
