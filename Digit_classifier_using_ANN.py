@@ -1,6 +1,7 @@
 from tensorflow.keras.datasets import mnist
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import numpy as np
 
 (x_train,y_train),(x_test,y_test) = mnist.load_data()
 
@@ -19,4 +20,6 @@ ANN_model.compile(loss="sparse_categorical_crossentropy",optimizer = 'adam',metr
 ANN_model.fit(x_train,y_train,epochs = 100)
 t = ANN_model.evaluate(x_test,y_test)
 print("Accuracy :",t[1])
-print(ANN_model.evalute(x_test)[0])
+print(np.argmax(ANN_model.evalute(x_test)[0]))
+plt.imshow(x_test[0])
+plt.show()
