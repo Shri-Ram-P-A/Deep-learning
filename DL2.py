@@ -19,3 +19,4 @@ ANN_model.compile(loss="sparse_categorical_crossentropy",optimizer = 'adam',metr
 ANN_model.fit(x_train,y_train,epochs = 100)
 t = ANN_model.evaluate(x_test,y_test)
 print("Accuracy :",t[1])
+print(ANN_model.evalute(x_test)[0])
